@@ -1,8 +1,9 @@
-import { ArrowUpRight, Github, Linkedin, Mail, Twitter } from "lucide-react"
+import { ArrowUpRight, Linkedin, Mail } from "lucide-react"
+import Link from "next/link"
 
 import { ThemeToggle } from "@/components/theme-toggle"
 import { Badge } from "@/components/ui/badge"
-import { Button, buttonVariants } from "@/components/ui/button"
+import { buttonVariants } from "@/components/ui/button"
 import {
   Card,
   CardContent,
@@ -10,10 +11,16 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
+import { blogPosts } from "@/lib/blog-posts"
 
-const navLinks = ["about", "skills", "experience", "projects", "blog", "contact"]
+const navLinks = [
+  { id: "about", label: "About", mobileLabel: "About", href: "#about" },
+  { id: "skills", label: "Skills", mobileLabel: "Skills", href: "#skills" },
+  { id: "experience", label: "Experience", mobileLabel: "Work", href: "#experience" },
+  { id: "projects", label: "Projects", mobileLabel: "Projects", href: "#projects" },
+  { id: "blog", label: "Blog", mobileLabel: "Blog", href: "/blog" },
+  { id: "contact", label: "Contact", mobileLabel: "Contact", href: "#contact" },
+]
 
 const skillGroups = {
   Frontend: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
@@ -75,48 +82,66 @@ const projects = [
   },
 ]
 
-const blogPosts = [
-  {
-    title: "Designing Components for Longevity",
-    date: "Jan 2026",
-    excerpt: "Practical decisions that keep UI systems maintainable as teams and products scale.",
-  },
-  {
-    title: "Fast, Accessible Interfaces in Next.js",
-    date: "Nov 2025",
-    excerpt: "A concise checklist for performance and accessibility wins without overengineering.",
-  },
-  {
-    title: "Shipping Better PRs",
-    date: "Sep 2025",
-    excerpt: "How clear structure and incremental scope improve reviews and delivery speed.",
-  },
-]
-
 export default function Home() {
   return (
     <div className="relative min-h-screen bg-background text-foreground">
+      <a
+        href="#home"
+        className="fixed left-4 top-4 z-40 rounded-full border bg-background/80 px-3 py-1 text-sm font-medium backdrop-blur"
+      >
+        Renz Rackhold
+      </a>
+
+      <nav
+        aria-label="Section navigation"
+        className="fixed right-4 top-1/2 z-40 hidden -translate-y-1/2 flex-col gap-2 rounded-xl border bg-background/80 p-2 backdrop-blur lg:flex"
+      >
+        {navLinks.map((link) => (
+          <a
+            key={link.id}
+            href={link.href}
+            className="rounded-md px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+          >
+            {link.label}
+          </a>
+        ))}
+        <div className="mt-1 border-t pt-1">
+          <ThemeToggle />
+        </div>
+      </nav>
+
+      <nav
+        aria-label="Tablet section navigation"
+        className="fixed inset-x-4 bottom-4 z-40 hidden items-center gap-2 rounded-2xl border bg-background/90 p-1.5 shadow-sm backdrop-blur md:flex lg:hidden"
+      >
+        <div className="h-9 w-9 shrink-0" />
+        <div className="mx-auto grid w-full max-w-2xl min-w-0 grid-cols-6 gap-1 px-0.5">
+          {navLinks.map((link) => (
+            <a
+              key={link.id}
+              href={link.href}
+              className="truncate rounded-full px-2.5 py-1 text-center text-[11px] font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+            >
+              {link.mobileLabel}
+            </a>
+          ))}
+        </div>
+        <div className="h-9 w-9 shrink-0">
+          <ThemeToggle />
+        </div>
+      </nav>
+
+      <div className="fixed bottom-4 right-4 z-40 md:hidden">
+        <ThemeToggle />
+      </div>
+
       <div className="pointer-events-none absolute inset-0 opacity-40">
         <div className="bg-grid-pattern absolute inset-0" />
         <div className="bg-dot-pattern absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]" />
       </div>
 
-      <header className="sticky top-0 z-40 border-b bg-background/90 backdrop-blur">
-        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
-          <a href="#home" className="font-serif text-lg font-semibold">Renz Rackhold</a>
-          <nav className="hidden items-center gap-6 text-sm md:flex">
-            {navLinks.map((link) => (
-              <a key={link} href={`#${link}`} className="text-muted-foreground transition-colors hover:text-foreground">
-                {link.charAt(0).toUpperCase() + link.slice(1)}
-              </a>
-            ))}
-          </nav>
-          <ThemeToggle />
-        </div>
-      </header>
-
-      <main id="home" className="relative z-10 mx-auto flex max-w-6xl flex-col gap-24 px-4 py-16 sm:px-6 lg:px-8">
-        <section className="section-reveal relative space-y-6 pt-8">
+      <main id="home" className="relative z-10 mx-auto flex max-w-6xl flex-col gap-24 px-4 py-20 pb-28 sm:px-6 lg:px-8 lg:pb-20">
+        <section className="section-reveal section-reveal-1 relative space-y-6 pt-10">
           <div className="pointer-events-none absolute -top-8 right-0 h-36 w-36 rounded-full bg-chart-2/10 blur-3xl animate-soft-pulse" />
           <Badge className="bg-chart-2/20 text-chart-2 hover:bg-chart-2/30 animate-float">Software Engineer</Badge>
           <h1 className="max-w-3xl font-serif text-4xl tracking-tight sm:text-5xl md:text-6xl">
@@ -135,7 +160,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="about" className="section-reveal space-y-6">
+        <section id="about" className="section-reveal section-reveal-2 scroll-mt-20 space-y-6">
           <h2 className="font-serif text-3xl">About</h2>
           <Card className="hover-lift hover-glow">
             <CardContent className="grid gap-6 pt-6 sm:grid-cols-[96px_1fr] sm:items-center">
@@ -149,9 +174,9 @@ export default function Home() {
           </Card>
         </section>
 
-        <section id="skills" className="section-reveal space-y-6">
+        <section id="skills" className="section-reveal section-reveal-3 scroll-mt-20 space-y-6">
           <h2 className="font-serif text-3xl">Skills</h2>
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {Object.entries(skillGroups).map(([group, items]) => (
               <Card key={group} className="hover-lift hover-glow">
                 <CardHeader>
@@ -169,7 +194,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="experience" className="section-reveal space-y-6">
+        <section id="experience" className="section-reveal section-reveal-4 scroll-mt-20 space-y-6">
           <h2 className="font-serif text-3xl">Experience</h2>
           <div className="relative space-y-4 border-l pl-6">
             {experiences.map((experience) => (
@@ -187,7 +212,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="projects" className="section-reveal space-y-6">
+        <section id="projects" className="section-reveal section-reveal-5 scroll-mt-20 space-y-6">
           <h2 className="font-serif text-3xl">Projects</h2>
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {projects.map((project) => (
@@ -214,43 +239,47 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="blog" className="section-reveal space-y-6">
-          <h2 className="font-serif text-3xl">Blog</h2>
-          <div className="space-y-4">
-            {blogPosts.map((post) => (
-              <Card key={post.title} className="hover-lift hover-glow">
-                <CardContent className="flex flex-col gap-3 pt-6 sm:flex-row sm:items-start sm:justify-between">
-                  <div className="space-y-1">
-                    <h3 className="text-lg font-medium">{post.title}</h3>
-                    <p className="text-sm text-muted-foreground">{post.excerpt}</p>
-                  </div>
-                  <div className="flex shrink-0 items-center gap-4 text-sm text-muted-foreground">
-                    <span>{post.date}</span>
-                    <a href="#" className="transition-transform duration-200 hover:-translate-y-0.5 hover:text-foreground">Read more</a>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+        <section className="section-reveal section-reveal-6 space-y-6">
+          <h2 className="font-serif text-3xl">Writing</h2>
+          <Card className="hover-glow">
+            <CardContent className="flex flex-col gap-4 pt-6 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p className="text-sm text-muted-foreground">
+                  Recent posts on UI architecture, performance, and engineering workflow.
+                </p>
+                <p className="mt-1 text-sm text-muted-foreground">{blogPosts.length} articles available</p>
+              </div>
+              <Link href="/blog" className={buttonVariants({ variant: "outline" })}>
+                Open Blog
+              </Link>
+            </CardContent>
+          </Card>
         </section>
 
-        <section id="contact" className="section-reveal space-y-6">
+        <section id="contact" className="section-reveal section-reveal-6 scroll-mt-20 space-y-6">
           <h2 className="font-serif text-3xl">Contact</h2>
           <Card className="hover-glow">
-            <CardContent className="space-y-4 pt-6">
-              <form className="grid gap-4">
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <Input name="name" placeholder="Name" required />
-                  <Input name="email" type="email" placeholder="Email" required />
+            <CardContent className="space-y-6 pt-6">
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+                <div>
+                  <p className="text-sm text-muted-foreground">
+                    Open to product engineering roles, consulting, and collaborative builds.
+                  </p>
+                  <a href="mailto:hello@example.com" className="mt-2 inline-block font-mono text-sm text-chart-2 hover:underline">
+                    hello@example.com
+                  </a>
                 </div>
-                <Textarea name="message" placeholder="Message" required />
-                <Button type="button" className="w-fit">Send Message</Button>
-              </form>
-              <div className="flex flex-wrap items-center gap-4 pt-2 text-muted-foreground">
-                <a href="#" aria-label="GitHub" className="inline-flex items-center gap-2 hover:text-foreground"><Github size={16} /> GitHub</a>
-                <a href="#" aria-label="LinkedIn" className="inline-flex items-center gap-2 hover:text-foreground"><Linkedin size={16} /> LinkedIn</a>
-                <a href="#" aria-label="Twitter" className="inline-flex items-center gap-2 hover:text-foreground"><Twitter size={16} /> Twitter/X</a>
-                <a href="mailto:hello@example.com" aria-label="Email" className="inline-flex items-center gap-2 hover:text-foreground"><Mail size={16} /> Email</a>
+                <a href="mailto:hello@example.com" className={buttonVariants()}>
+                  Start a Conversation
+                </a>
+              </div>
+              <div className="grid gap-3 sm:grid-cols-2">
+                <a href="#" aria-label="LinkedIn" className="group rounded-lg border bg-card px-4 py-3 transition-colors hover:bg-secondary">
+                  <span className="inline-flex items-center gap-2 text-sm text-muted-foreground group-hover:text-foreground"><Linkedin size={16} /> LinkedIn</span>
+                </a>
+                <a href="mailto:hello@example.com" aria-label="Email" className="group rounded-lg border bg-card px-4 py-3 transition-colors hover:bg-secondary">
+                  <span className="inline-flex items-center gap-2 text-sm text-muted-foreground group-hover:text-foreground"><Mail size={16} /> Email</span>
+                </a>
               </div>
             </CardContent>
           </Card>
