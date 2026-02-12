@@ -1,0 +1,125 @@
+{
+  "profileName": "Renz Rackhold",
+  "navLinks": [
+    { "id": "about", "label": "About", "mobileLabel": "About", "href": "#about" },
+    { "id": "skills", "label": "Skills", "mobileLabel": "Skills", "href": "#skills" },
+    { "id": "experience", "label": "Experience", "mobileLabel": "Work", "href": "#experience" },
+    { "id": "projects", "label": "Projects", "mobileLabel": "Projects", "href": "#projects" },
+    { "id": "blog", "label": "Blog", "mobileLabel": "Blog", "href": "/blog" },
+    { "id": "contact", "label": "Contact", "mobileLabel": "Contact", "href": "#contact" }
+  ],
+  "hero": {
+    "badge": "Software Engineer",
+    "headingPrefix": "Building thoughtful digital products with a",
+    "headingHighlight": "minimal, modern",
+    "headingSuffix": "approach.",
+    "description": "I design and ship reliable web experiences, combining clean interfaces, solid architecture, and efficient collaboration.",
+    "primaryCta": { "label": "View Projects", "href": "#projects" },
+    "secondaryCta": { "label": "Get in Touch", "href": "#contact" }
+  },
+  "metrics": [
+    {
+      "value": "7+",
+      "label": "Years Experience",
+      "detail": "Building production-grade web products since 2018."
+    },
+    {
+      "value": "25+",
+      "label": "Projects Delivered",
+      "detail": "From MVP launches to scalable internal platforms."
+    },
+    {
+      "value": "35%",
+      "label": "Faster Delivery",
+      "detail": "Reduced feature cycle time through reusable systems."
+    },
+    {
+      "value": "95+",
+      "label": "Performance Scores",
+      "detail": "Typical Lighthouse performance and accessibility outcomes."
+    }
+  ],
+  "about": {
+    "title": "About",
+    "avatarLabel": "Avatar",
+    "description": "I’m a software engineer focused on building performant, maintainable applications. I enjoy translating ideas into polished user experiences and working across design and engineering boundaries. Outside of code, I write about product craftsmanship and engineering process."
+  },
+  "skills": [
+    { "group": "Frontend", "items": ["React", "Next.js", "TypeScript", "Tailwind CSS"] },
+    { "group": "Backend", "items": ["Node.js", "Express", "PostgreSQL", "Prisma"] },
+    { "group": "Tools", "items": ["Git", "Docker", "Vercel", "Figma"] }
+  ],
+  "experiences": [
+    {
+      "company": "Northbound Labs",
+      "role": "Senior Software Engineer",
+      "date": "2023 — Present",
+      "description": "Leading frontend architecture for customer-facing products, improving performance and shipping design-system driven features."
+    },
+    {
+      "company": "Meridian Tech",
+      "role": "Software Engineer",
+      "date": "2021 — 2023",
+      "description": "Built full-stack internal tools and automated manual workflows, reducing reporting time and increasing product team velocity."
+    },
+    {
+      "company": "Pixel Foundry",
+      "role": "Frontend Engineer",
+      "date": "2019 — 2021",
+      "description": "Collaborated with design to build accessible interfaces and reusable components for multi-client web applications."
+    },
+    {
+      "company": "Studio Start",
+      "role": "Junior Developer",
+      "date": "2018 — 2019",
+      "description": "Supported rapid MVP delivery and maintained production websites for small business clients."
+    }
+  ],
+  "projects": [
+    {
+      "title": "Atlas Dashboard",
+      "description": "Analytics dashboard with role-based access, realtime charts, and exportable insights.",
+      "tags": ["Next.js", "TypeScript", "PostgreSQL"],
+      "githubUrl": "#",
+      "liveUrl": "#"
+    },
+    {
+      "title": "Pulse API",
+      "description": "Scalable backend service for event ingestion and processing with robust observability.",
+      "tags": ["Node.js", "Express", "Redis"],
+      "githubUrl": "#",
+      "liveUrl": "#"
+    },
+    {
+      "title": "Orbit UI Kit",
+      "description": "Component library for internal products focused on accessibility and consistency.",
+      "tags": ["React", "Storybook", "Tailwind CSS"],
+      "githubUrl": "#",
+      "liveUrl": "#"
+    },
+    {
+      "title": "Shipyard",
+      "description": "Lightweight project planning tool with collaborative boards and release tracking.",
+      "tags": ["Next.js", "Prisma", "Vercel"],
+      "githubUrl": "#",
+      "liveUrl": "#"
+    }
+  ],
+  "writing": {
+    "title": "Writing",
+    "description": "Recent posts on UI architecture, performance, and engineering workflow.",
+    "buttonLabel": "Open Blog"
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "Open to product engineering roles, consulting, and collaborative builds.",
+    "email": "hello@example.com",
+    "ctaLabel": "Start a Conversation",
+    "linkedinUrl": "#",
+    "linkedinLabel": "LinkedIn",
+    "emailLabel": "Email"
+  },
+  "footer": {
+    "copyrightName": "Renz Rackhold"
+  }
+}

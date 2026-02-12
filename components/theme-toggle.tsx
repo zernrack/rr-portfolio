@@ -1,7 +1,7 @@
 "use client"
 
 import { Moon, Sun } from "lucide-react"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 
 import { Button } from "@/components/ui/button"
 
@@ -23,16 +23,17 @@ function getInitialTheme(): Theme {
 }
 
 export function ThemeToggle() {
-  const [theme, setTheme] = useState<Theme>(getInitialTheme)
-
   useEffect(() => {
-    document.documentElement.classList.toggle("dark", theme === "dark")
-    window.localStorage.setItem("theme", theme)
-  }, [theme])
+    const initialTheme = getInitialTheme()
+    document.documentElement.classList.toggle("dark", initialTheme === "dark")
+    window.localStorage.setItem("theme", initialTheme)
+  }, [])
 
   const toggleTheme = () => {
-    const nextTheme: Theme = theme === "dark" ? "light" : "dark"
-    setTheme(nextTheme)
+    const isDarkMode = document.documentElement.classList.contains("dark")
+    const nextTheme: Theme = isDarkMode ? "light" : "dark"
+    document.documentElement.classList.toggle("dark", nextTheme === "dark")
+    window.localStorage.setItem("theme", nextTheme)
   }
 
   return (
@@ -42,7 +43,8 @@ export function ThemeToggle() {
       size="icon"
       onClick={toggleTheme}
     >
-      {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+      <Sun size={16} className="hidden dark:block" />
+      <Moon size={16} className="block dark:hidden" />
     </Button>
   )
 }

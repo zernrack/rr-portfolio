@@ -48,6 +48,7 @@
 }
 
 :root {
+  color-scheme: light;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
@@ -83,6 +84,7 @@
 }
 
 .dark {
+  color-scheme: dark;
   --background: oklch(0.129 0.042 264.695);
   --foreground: oklch(0.984 0.003 247.858);
   --card: oklch(0.208 0.042 265.755);
@@ -136,6 +138,22 @@
 }
 
 @layer utilities {
+  .page-shell {
+    @apply relative min-h-screen bg-background text-foreground;
+  }
+
+  .accent-text {
+    @apply text-primary;
+  }
+
+  .accent-badge {
+    @apply bg-primary/15 text-primary hover:bg-primary/25;
+  }
+
+  .accent-orb {
+    @apply bg-primary/15;
+  }
+
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;

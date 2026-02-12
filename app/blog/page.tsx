@@ -5,9 +5,11 @@ import { ArrowLeft } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { buttonVariants } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { blogPosts } from "@/lib/blog-posts"
+import { getBlogPosts } from "@/lib/content"
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  const blogPosts = await getBlogPosts()
+
   return (
     <main className="mx-auto max-w-4xl space-y-8 px-4 py-16 sm:px-6 lg:px-8">
       <div className="flex items-center justify-between gap-4">
@@ -23,7 +25,7 @@ export default function BlogPage() {
 
       <section className="space-y-4">
         {blogPosts.map((post) => (
-          <Card key={post.title} className="hover-lift hover-glow">
+          <Card key={post.slug} className="hover-lift hover-glow">
             <CardHeader>
               <CardTitle>{post.title}</CardTitle>
               <CardDescription>{post.date}</CardDescription>
