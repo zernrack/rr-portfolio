@@ -1,5 +1,5 @@
 import { ArrowUpRight, Linkedin, Mail } from "lucide-react"
-import Link from "next/link"
+import Image from "next/image"
 
 import { ThemeToggle } from "@/components/theme-toggle"
 import { Badge } from "@/components/ui/badge"
@@ -11,15 +11,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { getBlogPosts, getHomeContent } from "@/lib/content"
+import { getHomeContent } from "@/lib/content"
 
 export default async function Home() {
-  const [homeContent, blogPosts] = await Promise.all([
-    getHomeContent(),
-    getBlogPosts(),
-  ])
+  const homeContent = await getHomeContent()
 
-  const { about, contact, experiences, footer, hero, metrics, navLinks, profileName, projects, skills, writing } = homeContent
+  const { about, contact, experiences, footer, hero, metrics, navLinks, profileName, projects, skills } = homeContent
 
   return (
     <div className="relative min-h-screen bg-background text-foreground">
@@ -76,6 +73,7 @@ export default async function Home() {
       <div className="pointer-events-none absolute inset-0 opacity-40">
         <div className="bg-grid-pattern absolute inset-0" />
         <div className="bg-dot-pattern absolute inset-0 mask-[radial-gradient(ellipse_at_center,black,transparent_70%)]" />
+        <div className="dark-light-rays absolute inset-0 hidden dark:block" />
       </div>
 
       <main id="home" className="relative z-10 mx-auto flex max-w-6xl flex-col gap-24 px-4 py-20 pb-28 sm:px-6 lg:px-8 lg:pb-20">
@@ -117,8 +115,23 @@ export default async function Home() {
           <h2 className="text-ease-in text-ease-delay-1 font-serif text-3xl">{about.title}</h2>
           <Card className="hover-lift hover-glow">
             <CardContent className="grid gap-6 pt-6 sm:grid-cols-[96px_1fr] sm:items-center">
-              <div className="flex h-24 w-24 items-center justify-center rounded-full bg-secondary font-mono text-xs text-muted-foreground animate-soft-pulse">
-                {about.avatarLabel}
+              <div className="relative h-24 w-24 overflow-hidden rounded-full border">
+                <Image
+                  src="/photo_lightmode1.jpg"
+                  alt={`${about.avatarLabel} light mode avatar`}
+                  width={96}
+                  height={96}
+                  className="block h-full w-full object-cover object-[center_35%] dark:hidden"
+                  priority
+                />
+                <Image
+                  src="/photo_darkmode1.jpg"
+                  alt={`${about.avatarLabel} dark mode avatar`}
+                  width={96}
+                  height={96}
+                  className="hidden h-full w-full object-cover dark:block"
+                  priority
+                />
               </div>
               <p className="text-muted-foreground">{about.description}</p>
             </CardContent>
@@ -199,6 +212,7 @@ export default async function Home() {
           </div>
         </section>
 
+        {/*
         <section className="section-reveal section-reveal-6 space-y-6">
           <h2 className="text-ease-in text-ease-delay-1 font-serif text-3xl">{writing.title}</h2>
           <Card className="hover-glow">
@@ -213,6 +227,7 @@ export default async function Home() {
             </CardContent>
           </Card>
         </section>
+        */}
 
         <section id="contact" className="section-reveal section-reveal-6 scroll-mt-20 space-y-6">
           <h2 className="text-ease-in text-ease-delay-1 font-serif text-3xl">{contact.title}</h2>

@@ -102,6 +102,12 @@ Post body content...
 
 Posts are auto-loaded and sorted by date (newest first).
 
+## TODO
+
+- Add remote blog publishing so posts can be created/updated without local file edits.
+- Suggested approach: connect blog content to a headless CMS or database-backed admin route, then replace file-based `content/blog/*.md` loading in `lib/content.ts`.
+- Keep markdown as optional fallback for local drafts.
+
 ## UI Behavior
 
 - Project cards only show the `GitHub` link when `projects[].githubUrl` is a real URL (not `#` or empty).
