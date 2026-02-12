@@ -1,0 +1,136 @@
+{
+  "profileName": "Renz Rackhold",
+  "navLinks": [
+    { "id": "about", "label": "About", "mobileLabel": "About", "href": "#about" },
+    { "id": "skills", "label": "Skills", "mobileLabel": "Skills", "href": "#skills" },
+    { "id": "experience", "label": "Experience", "mobileLabel": "Work", "href": "#experience" },
+    { "id": "projects", "label": "Projects", "mobileLabel": "Projects", "href": "#projects" },
+    { "id": "contact", "label": "Contact", "mobileLabel": "Contact", "href": "#contact" }
+  ],
+  "hero": {
+    "badge": "Software Engineer",
+    "headingPrefix": "Providing and building scalable software solutions with",
+    "headingHighlight": "reliable execution and measurable impact",
+    "headingSuffix": "across enterprise and modern web platforms.",
+    "description": "Results-driven software engineer based in Philippines, focused on solution architecture, performance optimization, and data-informed product delivery.",
+    "primaryCta": { "label": "View Projects", "href": "#projects" },
+    "secondaryCta": { "label": "Get in Touch", "href": "#contact" }
+  },
+  "metrics": [
+    {
+      "value": "25–40%",
+      "label": "Manual Process Reduction",
+      "detail": "Automated workflows and API integrations to improve operational efficiency."
+    },
+    {
+      "value": "30%+",
+      "label": "Performance Improvement",
+      "detail": "Led platform and migration work that boosted speed and scalability."
+    },
+    {
+      "value": "~20%",
+      "label": "Reporting Effort Cut",
+      "detail": "Built analytics dashboards that improved KPI visibility and reduced manual reporting."
+    },
+    {
+      "value": "3+ Years",
+      "label": "Total Work Experience",
+      "detail": "Professional experience across frontend, analytics, software engineering, and DevOps roles since 2022."
+    }
+  ],
+  "about": {
+    "title": "About",
+    "avatarLabel": "RAR",
+    "description": "Results-driven Software Engineer experienced in delivering scalable full-stack applications, automating operational workflows, and improving system performance. Strong background in Next.js, React, Spring Boot, cloud deployment, and analytics tooling. Education: BS Information Technology (2023–2025) and Diploma in Information Communication Technology (2020–2023), Polytechnic University of the Philippines – Manila, graduated Cum Laude in March 2025."
+  },
+  "skills": [
+    { "group": "Programming Languages", "items": ["JavaScript", "TypeScript", "Python", "Java", "SQL"] },
+    { "group": "Frameworks & Libraries", "items": ["React", "Next.js", "Node.js", "Spring Boot", "Tailwind CSS"] },
+    { "group": "Data & Testing", "items": ["Power BI", "MongoDB", "MySQL", "Cypress"] },
+    { "group": "Tools & Platforms", "items": ["Git", "GitHub", "Postman", "Jira", "Vercel", "Supabase"] }
+  ],
+  "experiences": [
+    {
+      "company": "Hungry Workhorse — Makati, Philippines",
+      "role": "DevOps Specialist",
+      "date": "Aug 2025 — Present",
+      "description": "Delivered low-code API integrations and workflow automations reducing manual operational processes by 25–40%, improved platform reliability, and streamlined intern onboarding/documentation to reduce repeat IT requests.",
+      "techStack": ["API Integrations", "Automation", "Monitoring", "Documentation", "Wix", "AWS"]
+    },
+    {
+      "company": "Ezeops — Melbourne, Australia",
+      "role": "Software Engineer",
+      "date": "Jul 2025 — Present",
+      "description": "Built full-stack Next.js applications from Figma designs with responsive mobile-first UI and scalable backend APIs; led WordPress → Next.js migrations improving application performance by 30%+ and supporting consistent sprint delivery.",
+      "techStack": ["Next.js", "React", "TypeScript", "Figma", "PayloadCMS", "Wordpress"]
+    },
+    {
+      "company": "Manulife — Makati, Philippines",
+      "role": "Software Engineer Intern",
+      "date": "Oct 2023 — Mar 2025",
+      "description": "Developed production features for a consumer-facing platform using Spring Boot and Clean Architecture; assisted SQL → MongoDB migration to improve query performance while maintaining release stability.",
+      "techStack": ["Spring Boot", "Java", "SQL", "MongoDB", "React", "Jenkins", "Bitbucket"]
+    },
+    {
+      "company": "Accenture — Mandaluyong, Philippines",
+      "role": "Data Analyst Intern",
+      "date": "Jul 2024 — Sep 2024",
+      "description": "Built interactive Power BI dashboards and performed multi-source data validation; reduced manual reporting by ~20% and improved data accuracy and visibility across stakeholders.",
+      "techStack": ["Power BI", "Data Validation", "Analytics", "Excel"]
+    },
+    {
+      "company": "Lophils Inc. — Quezon City, Philippines",
+      "role": "Front-End Developer & Cypress QA Intern",
+      "date": "Apr 2023 — Aug 2023",
+      "description": "Developed responsive React + Tailwind components and implemented Cypress end-to-end tests, increasing regression coverage and reducing manual QA effort by ~30%.",
+      "techStack": ["React", "Tailwind CSS", "Cypress"]
+    },
+    {
+      "company": "Hacktiv Colab Inc. — Makati, Philippines",
+      "role": "Front-End Developer Intern",
+      "date": "Aug 2022 — Oct 2022",
+      "description": "Built responsive React + Material UI interfaces in an Agile Scrum environment and delivered sprint features on schedule with improved cross-device compatibility.",
+      "techStack": ["React", "Material UI", "Agile Scrum"]
+    }
+  ],
+  "projects": [
+    {
+      "title": "ShieldPH — Cybersecurity Learning Platform",
+      "description": "Built a gamified cybersecurity education system with 10+ learning modules, threat simulations, progress tracking, and real-time updates to increase engagement and awareness.",
+      "tags": ["Next.js", "TypeScript", "Cybersecurity", "Vercel"],
+      "githubUrl": "#",
+      "liveUrl": "https://shield-ph.vercel.app"
+    },
+    {
+      "title": "Pili-Pinas — MERN Travel Guide",
+      "description": "Developed a full-stack MERN application serving 5+ destinations with RESTful APIs, complete CRUD functionality, and validated end-to-end user journeys.",
+      "tags": ["MongoDB", "Express", "React", "Node.js"],
+      "githubUrl": "#",
+      "liveUrl": "https://pili-pinas.onrender.com"
+    },
+    {
+      "title": "Work Pulse — Time Tracking & Productivity Analytics",
+      "description": "Built a time tracking and task management system with clock-in/out, task monitoring, and analytics dashboards; optimized Vercel deployment for performance and reliability.",
+      "tags": ["Next.js", "Analytics", "Vercel", "Productivity"],
+      "githubUrl": "#",
+      "liveUrl": "https://work-pulse-zeta.vercel.app"
+    }
+  ],
+  "writing": {
+    "title": "Writing",
+    "description": "Recent posts on UI architecture, performance, and engineering workflow.",
+    "buttonLabel": "Open Blog"
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "Open to software engineering opportunities, collaborations, and consulting work.",
+    "email": "rrackhold@proton.me",
+    "ctaLabel": "Start a Conversation",
+    "linkedinUrl": "https://linkedin.com/in/renz-rackhold",
+    "linkedinLabel": "LinkedIn",
+    "emailLabel": "Email"
+  },
+  "footer": {
+    "copyrightName": "Renz Rackhold"
+  }
+}

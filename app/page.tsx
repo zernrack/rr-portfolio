@@ -1,5 +1,5 @@
 import { ArrowUpRight, Linkedin, Mail } from "lucide-react"
-import Link from "next/link"
+import Image from "next/image"
 
 import { ThemeToggle } from "@/components/theme-toggle"
 import { Badge } from "@/components/ui/badge"
@@ -11,85 +11,20 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { blogPosts } from "@/lib/blog-posts"
+import { getHomeContent } from "@/lib/content"
 
-const navLinks = [
-  { id: "about", label: "About", mobileLabel: "About", href: "#about" },
-  { id: "skills", label: "Skills", mobileLabel: "Skills", href: "#skills" },
-  { id: "experience", label: "Experience", mobileLabel: "Work", href: "#experience" },
-  { id: "projects", label: "Projects", mobileLabel: "Projects", href: "#projects" },
-  { id: "blog", label: "Blog", mobileLabel: "Blog", href: "/blog" },
-  { id: "contact", label: "Contact", mobileLabel: "Contact", href: "#contact" },
-]
+export default async function Home() {
+  const homeContent = await getHomeContent()
 
-const skillGroups = {
-  Frontend: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
-  Backend: ["Node.js", "Express", "PostgreSQL", "Prisma"],
-  Tools: ["Git", "Docker", "Vercel", "Figma"],
-}
+  const { about, contact, experiences, footer, hero, metrics, navLinks, profileName, projects, skills } = homeContent
 
-const experiences = [
-  {
-    company: "Northbound Labs",
-    role: "Senior Software Engineer",
-    date: "2023 — Present",
-    description:
-      "Leading frontend architecture for customer-facing products, improving performance and shipping design-system driven features.",
-  },
-  {
-    company: "Meridian Tech",
-    role: "Software Engineer",
-    date: "2021 — 2023",
-    description:
-      "Built full-stack internal tools and automated manual workflows, reducing reporting time and increasing product team velocity.",
-  },
-  {
-    company: "Pixel Foundry",
-    role: "Frontend Engineer",
-    date: "2019 — 2021",
-    description:
-      "Collaborated with design to build accessible interfaces and reusable components for multi-client web applications.",
-  },
-  {
-    company: "Studio Start",
-    role: "Junior Developer",
-    date: "2018 — 2019",
-    description:
-      "Supported rapid MVP delivery and maintained production websites for small business clients.",
-  },
-]
-
-const projects = [
-  {
-    title: "Atlas Dashboard",
-    description: "Analytics dashboard with role-based access, realtime charts, and exportable insights.",
-    tags: ["Next.js", "TypeScript", "PostgreSQL"],
-  },
-  {
-    title: "Pulse API",
-    description: "Scalable backend service for event ingestion and processing with robust observability.",
-    tags: ["Node.js", "Express", "Redis"],
-  },
-  {
-    title: "Orbit UI Kit",
-    description: "Component library for internal products focused on accessibility and consistency.",
-    tags: ["React", "Storybook", "Tailwind CSS"],
-  },
-  {
-    title: "Shipyard",
-    description: "Lightweight project planning tool with collaborative boards and release tracking.",
-    tags: ["Next.js", "Prisma", "Vercel"],
-  },
-]
-
-export default function Home() {
   return (
     <div className="relative min-h-screen bg-background text-foreground">
       <a
         href="#home"
         className="fixed left-4 top-4 z-40 rounded-full border bg-background/80 px-3 py-1 text-sm font-medium backdrop-blur"
       >
-        Renz Rackhold
+        {profileName}
       </a>
 
       <nav
@@ -137,53 +72,82 @@ export default function Home() {
 
       <div className="pointer-events-none absolute inset-0 opacity-40">
         <div className="bg-grid-pattern absolute inset-0" />
-        <div className="bg-dot-pattern absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]" />
+        <div className="bg-dot-pattern absolute inset-0 mask-[radial-gradient(ellipse_at_center,black,transparent_70%)]" />
+        <div className="dark-light-rays absolute inset-0 hidden dark:block" />
       </div>
 
       <main id="home" className="relative z-10 mx-auto flex max-w-6xl flex-col gap-24 px-4 py-20 pb-28 sm:px-6 lg:px-8 lg:pb-20">
         <section className="section-reveal section-reveal-1 relative space-y-6 pt-10">
           <div className="pointer-events-none absolute -top-8 right-0 h-36 w-36 rounded-full bg-chart-2/10 blur-3xl animate-soft-pulse" />
-          <Badge className="bg-chart-2/20 text-chart-2 hover:bg-chart-2/30 animate-float">Software Engineer</Badge>
-          <h1 className="max-w-3xl font-serif text-4xl tracking-tight sm:text-5xl md:text-6xl">
-            Building thoughtful digital products with a <span className="text-chart-2">minimal, modern</span> approach.
+          <Badge className="bg-chart-2/20 text-chart-2 hover:bg-chart-2/30 animate-float">{hero.badge}</Badge>
+          <h1 className="text-ease-in text-ease-delay-1 max-w-3xl font-serif text-4xl tracking-tight sm:text-5xl md:text-6xl">
+            {hero.headingPrefix}{" "}
+            <span className="text-chart-2">{hero.headingHighlight}</span>{" "}
+            {hero.headingSuffix}
           </h1>
-          <p className="max-w-2xl text-muted-foreground">
-            I design and ship reliable web experiences, combining clean interfaces, solid architecture, and efficient collaboration.
-          </p>
-          <div className="flex flex-wrap gap-3">
-            <a href="#projects" className={buttonVariants()}>
-              View Projects
+          <p className="text-ease-in text-ease-delay-2 max-w-2xl text-muted-foreground">{hero.description}</p>
+          <div className="text-ease-in text-ease-delay-3 flex flex-wrap gap-3">
+            <a href={hero.primaryCta.href} className={buttonVariants()}>
+              {hero.primaryCta.label}
             </a>
-            <a href="#contact" className={buttonVariants({ variant: "outline" })}>
-              Get in Touch
+            <a href={hero.secondaryCta.href} className={buttonVariants({ variant: "outline" })}>
+              {hero.secondaryCta.label}
             </a>
           </div>
         </section>
 
-        <section id="about" className="section-reveal section-reveal-2 scroll-mt-20 space-y-6">
-          <h2 className="font-serif text-3xl">About</h2>
+        <section className="section-reveal section-reveal-2 space-y-6">
+          <h2 className="text-ease-in text-ease-delay-1 font-serif text-3xl">Metrics</h2>
+          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+            {metrics.map((metric) => (
+              <Card key={metric.label} className="hover-lift hover-glow">
+                <CardContent className="space-y-2 pt-6">
+                  <p className="font-mono text-3xl font-semibold text-chart-2">{metric.value}</p>
+                  <p className="text-sm font-medium">{metric.label}</p>
+                  <p className="text-sm text-muted-foreground">{metric.detail}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        <section id="about" className="section-reveal section-reveal-3 scroll-mt-20 space-y-6">
+          <h2 className="text-ease-in text-ease-delay-1 font-serif text-3xl">{about.title}</h2>
           <Card className="hover-lift hover-glow">
             <CardContent className="grid gap-6 pt-6 sm:grid-cols-[96px_1fr] sm:items-center">
-              <div className="flex h-24 w-24 items-center justify-center rounded-full bg-secondary font-mono text-xs text-muted-foreground animate-soft-pulse">
-                Avatar
+              <div className="relative h-24 w-24 overflow-hidden rounded-full border">
+                <Image
+                  src="/photo_lightmode1.jpg"
+                  alt={`${about.avatarLabel} light mode avatar`}
+                  width={96}
+                  height={96}
+                  className="block h-full w-full object-cover object-[center_35%] dark:hidden"
+                  priority
+                />
+                <Image
+                  src="/photo_darkmode1.jpg"
+                  alt={`${about.avatarLabel} dark mode avatar`}
+                  width={96}
+                  height={96}
+                  className="hidden h-full w-full object-cover dark:block"
+                  priority
+                />
               </div>
-              <p className="text-muted-foreground">
-                I’m a software engineer focused on building performant, maintainable applications. I enjoy translating ideas into polished user experiences and working across design and engineering boundaries. Outside of code, I write about product craftsmanship and engineering process.
-              </p>
+              <p className="text-muted-foreground">{about.description}</p>
             </CardContent>
           </Card>
         </section>
 
-        <section id="skills" className="section-reveal section-reveal-3 scroll-mt-20 space-y-6">
-          <h2 className="font-serif text-3xl">Skills</h2>
+        <section id="skills" className="section-reveal section-reveal-4 scroll-mt-20 space-y-6">
+          <h2 className="text-ease-in text-ease-delay-1 font-serif text-3xl">Skills</h2>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {Object.entries(skillGroups).map(([group, items]) => (
-              <Card key={group} className="hover-lift hover-glow">
+            {skills.map((skillGroup) => (
+              <Card key={skillGroup.group} className="hover-lift hover-glow">
                 <CardHeader>
-                  <CardTitle>{group}</CardTitle>
+                  <CardTitle>{skillGroup.group}</CardTitle>
                 </CardHeader>
                 <CardContent className="flex flex-wrap gap-2">
-                  {items.map((item) => (
+                  {skillGroup.items.map((item) => (
                     <Badge key={item} variant="secondary" className="font-mono text-[11px]">
                       {item}
                     </Badge>
@@ -194,8 +158,8 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="experience" className="section-reveal section-reveal-4 scroll-mt-20 space-y-6">
-          <h2 className="font-serif text-3xl">Experience</h2>
+        <section id="experience" className="section-reveal section-reveal-5 scroll-mt-20 space-y-6">
+          <h2 className="text-ease-in text-ease-delay-1 font-serif text-3xl">Experience</h2>
           <div className="relative space-y-4 border-l pl-6">
             {experiences.map((experience) => (
               <Card key={`${experience.company}-${experience.role}`} className="relative hover-lift hover-glow">
@@ -206,14 +170,21 @@ export default function Home() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-muted-foreground">{experience.description}</p>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {experience.techStack.map((tech) => (
+                      <Badge key={`${experience.company}-${tech}`} variant="secondary" className="font-mono text-[11px]">
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
                 </CardContent>
               </Card>
             ))}
           </div>
         </section>
 
-        <section id="projects" className="section-reveal section-reveal-5 scroll-mt-20 space-y-6">
-          <h2 className="font-serif text-3xl">Projects</h2>
+        <section id="projects" className="section-reveal section-reveal-6 scroll-mt-20 space-y-6">
+          <h2 className="text-ease-in text-ease-delay-1 font-serif text-3xl">Projects</h2>
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {projects.map((project) => (
               <Card key={project.title} className="hover-lift hover-glow">
@@ -230,8 +201,10 @@ export default function Home() {
                     ))}
                   </div>
                   <div className="flex gap-4 text-sm text-muted-foreground">
-                    <a href="#" className="inline-flex items-center gap-1 transition-transform duration-200 hover:-translate-y-0.5 hover:text-foreground">GitHub <ArrowUpRight size={14} /></a>
-                    <a href="#" className="inline-flex items-center gap-1 transition-transform duration-200 hover:-translate-y-0.5 hover:text-foreground">Live <ArrowUpRight size={14} /></a>
+                    {project.githubUrl && project.githubUrl !== "#" && (
+                      <a href={project.githubUrl} className="inline-flex items-center gap-1 transition-transform duration-200 hover:-translate-y-0.5 hover:text-foreground">GitHub <ArrowUpRight size={14} /></a>
+                    )}
+                    <a href={project.liveUrl} className="inline-flex items-center gap-1 transition-transform duration-200 hover:-translate-y-0.5 hover:text-foreground">Live <ArrowUpRight size={14} /></a>
                   </div>
                 </CardContent>
               </Card>
@@ -239,46 +212,41 @@ export default function Home() {
           </div>
         </section>
 
+        {/*
         <section className="section-reveal section-reveal-6 space-y-6">
-          <h2 className="font-serif text-3xl">Writing</h2>
+          <h2 className="text-ease-in text-ease-delay-1 font-serif text-3xl">{writing.title}</h2>
           <Card className="hover-glow">
             <CardContent className="flex flex-col gap-4 pt-6 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <p className="text-sm text-muted-foreground">
-                  Recent posts on UI architecture, performance, and engineering workflow.
-                </p>
-                <p className="mt-1 text-sm text-muted-foreground">{blogPosts.length} articles available</p>
+                <p className="text-sm text-muted-foreground">{writing.description}</p>
+                <p className="mt-1 text-sm text-chart-2">{blogPosts.length} articles available</p>
               </div>
               <Link href="/blog" className={buttonVariants({ variant: "outline" })}>
-                Open Blog
+                {writing.buttonLabel}
               </Link>
             </CardContent>
           </Card>
         </section>
+        */}
 
         <section id="contact" className="section-reveal section-reveal-6 scroll-mt-20 space-y-6">
-          <h2 className="font-serif text-3xl">Contact</h2>
+          <h2 className="text-ease-in text-ease-delay-1 font-serif text-3xl">{contact.title}</h2>
           <Card className="hover-glow">
             <CardContent className="space-y-6 pt-6">
               <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
                 <div>
-                  <p className="text-sm text-muted-foreground">
-                    Open to product engineering roles, consulting, and collaborative builds.
-                  </p>
-                  <a href="mailto:hello@example.com" className="mt-2 inline-block font-mono text-sm text-chart-2 hover:underline">
-                    hello@example.com
-                  </a>
+                  <p className="text-sm text-muted-foreground">{contact.description}</p>
                 </div>
-                <a href="mailto:hello@example.com" className={buttonVariants()}>
-                  Start a Conversation
+                <a href={`mailto:${contact.email}`} className={buttonVariants()}>
+                  {contact.ctaLabel}
                 </a>
               </div>
               <div className="grid gap-3 sm:grid-cols-2">
-                <a href="#" aria-label="LinkedIn" className="group rounded-lg border bg-card px-4 py-3 transition-colors hover:bg-secondary">
-                  <span className="inline-flex items-center gap-2 text-sm text-muted-foreground group-hover:text-foreground"><Linkedin size={16} /> LinkedIn</span>
+                <a href={contact.linkedinUrl} aria-label={contact.linkedinLabel} className="group rounded-lg border bg-card px-4 py-3 transition-colors hover:bg-secondary">
+                  <span className="inline-flex items-center gap-2 text-sm text-muted-foreground group-hover:text-foreground"><Linkedin size={16} /> {contact.linkedinLabel}</span>
                 </a>
-                <a href="mailto:hello@example.com" aria-label="Email" className="group rounded-lg border bg-card px-4 py-3 transition-colors hover:bg-secondary">
-                  <span className="inline-flex items-center gap-2 text-sm text-muted-foreground group-hover:text-foreground"><Mail size={16} /> Email</span>
+                <a href={`mailto:${contact.email}`} aria-label={contact.emailLabel} className="group rounded-lg border bg-card px-4 py-3 transition-colors hover:bg-secondary">
+                  <span className="inline-flex items-center gap-2 text-sm text-muted-foreground group-hover:text-foreground"><Mail size={16} /> {contact.emailLabel}</span>
                 </a>
               </div>
             </CardContent>
@@ -288,7 +256,7 @@ export default function Home() {
 
       <footer className="border-t">
         <div className="mx-auto max-w-6xl px-4 py-6 text-sm text-muted-foreground sm:px-6 lg:px-8">
-          © {new Date().getFullYear()} Renz Rackhold. All rights reserved.
+          © {new Date().getFullYear()} {footer.copyrightName}. All rights reserved.
         </div>
       </footer>
     </div>
