@@ -19,8 +19,59 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Software Engineer Portfolio",
-  description: "Minimal single-page software engineer portfolio",
+  title: {
+    default: "Renz Rackhold | Software Engineer",
+    template: "%s | Renz Rackhold",
+  },
+  description:
+    "Renz Rackhold is a software engineer building scalable web applications, automation workflows, and performance-focused digital products.",
+  keywords: [
+    "Renz Rackhold",
+    "Software Engineer",
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Portfolio",
+    "Web Development",
+    "Philippines",
+  ],
+  authors: [{ name: "Renz Rackhold" }],
+  creator: "Renz Rackhold",
+  publisher: "Renz Rackhold",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    title: "Renz Rackhold | Software Engineer",
+    description:
+      "Portfolio of Renz Rackhold featuring software engineering work, scalable solutions, and measurable delivery impact.",
+    siteName: "Renz Rackhold Portfolio",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Renz Rackhold | Software Engineer",
+    description:
+      "Software engineer portfolio focused on full-stack development, automation, and performance.",
+  },
+  icons: {
+    icon: "/favicon_rar.png",
+    shortcut: "/favicon_rar.png",
+    apple: "/favicon_rar.png",
+  },
+  alternates: {
+    canonical: "/",
+  },
+  category: "technology",
 };
 
 export default function RootLayout({
