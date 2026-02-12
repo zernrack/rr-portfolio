@@ -95,7 +95,12 @@ const blogPosts = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="relative min-h-screen bg-background text-foreground">
+      <div className="pointer-events-none absolute inset-0 opacity-40">
+        <div className="bg-grid-pattern absolute inset-0" />
+        <div className="bg-dot-pattern absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]" />
+      </div>
+
       <header className="sticky top-0 z-40 border-b bg-background/90 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <a href="#home" className="font-serif text-lg font-semibold">Renz Rackhold</a>
@@ -110,9 +115,10 @@ export default function Home() {
         </div>
       </header>
 
-      <main id="home" className="mx-auto flex max-w-6xl flex-col gap-24 px-4 py-16 sm:px-6 lg:px-8">
-        <section className="section-reveal space-y-6 pt-8">
-          <Badge className="bg-chart-2/20 text-chart-2 hover:bg-chart-2/30">Software Engineer</Badge>
+      <main id="home" className="relative z-10 mx-auto flex max-w-6xl flex-col gap-24 px-4 py-16 sm:px-6 lg:px-8">
+        <section className="section-reveal relative space-y-6 pt-8">
+          <div className="pointer-events-none absolute -top-8 right-0 h-36 w-36 rounded-full bg-chart-2/10 blur-3xl animate-soft-pulse" />
+          <Badge className="bg-chart-2/20 text-chart-2 hover:bg-chart-2/30 animate-float">Software Engineer</Badge>
           <h1 className="max-w-3xl font-serif text-4xl tracking-tight sm:text-5xl md:text-6xl">
             Building thoughtful digital products with a <span className="text-chart-2">minimal, modern</span> approach.
           </h1>
@@ -131,9 +137,9 @@ export default function Home() {
 
         <section id="about" className="section-reveal space-y-6">
           <h2 className="font-serif text-3xl">About</h2>
-          <Card>
+          <Card className="hover-lift hover-glow">
             <CardContent className="grid gap-6 pt-6 sm:grid-cols-[96px_1fr] sm:items-center">
-              <div className="flex h-24 w-24 items-center justify-center rounded-full bg-secondary font-mono text-xs text-muted-foreground">
+              <div className="flex h-24 w-24 items-center justify-center rounded-full bg-secondary font-mono text-xs text-muted-foreground animate-soft-pulse">
                 Avatar
               </div>
               <p className="text-muted-foreground">
@@ -147,7 +153,7 @@ export default function Home() {
           <h2 className="font-serif text-3xl">Skills</h2>
           <div className="grid gap-4 md:grid-cols-3">
             {Object.entries(skillGroups).map(([group, items]) => (
-              <Card key={group}>
+              <Card key={group} className="hover-lift hover-glow">
                 <CardHeader>
                   <CardTitle>{group}</CardTitle>
                 </CardHeader>
@@ -167,8 +173,8 @@ export default function Home() {
           <h2 className="font-serif text-3xl">Experience</h2>
           <div className="relative space-y-4 border-l pl-6">
             {experiences.map((experience) => (
-              <Card key={`${experience.company}-${experience.role}`} className="relative">
-                <span className="absolute -left-[2.15rem] top-7 h-3 w-3 rounded-full bg-chart-2" />
+              <Card key={`${experience.company}-${experience.role}`} className="relative hover-lift hover-glow">
+                <span className="absolute -left-[2.15rem] top-7 h-3 w-3 rounded-full bg-chart-2 animate-soft-pulse" />
                 <CardHeader>
                   <CardTitle>{experience.role}</CardTitle>
                   <CardDescription>{experience.company} · {experience.date}</CardDescription>
@@ -185,7 +191,7 @@ export default function Home() {
           <h2 className="font-serif text-3xl">Projects</h2>
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {projects.map((project) => (
-              <Card key={project.title} className="transition-shadow hover:shadow-md">
+              <Card key={project.title} className="hover-lift hover-glow">
                 <CardHeader>
                   <CardTitle>{project.title}</CardTitle>
                   <CardDescription>{project.description}</CardDescription>
@@ -199,8 +205,8 @@ export default function Home() {
                     ))}
                   </div>
                   <div className="flex gap-4 text-sm text-muted-foreground">
-                    <a href="#" className="inline-flex items-center gap-1 hover:text-foreground">GitHub <ArrowUpRight size={14} /></a>
-                    <a href="#" className="inline-flex items-center gap-1 hover:text-foreground">Live <ArrowUpRight size={14} /></a>
+                    <a href="#" className="inline-flex items-center gap-1 transition-transform duration-200 hover:-translate-y-0.5 hover:text-foreground">GitHub <ArrowUpRight size={14} /></a>
+                    <a href="#" className="inline-flex items-center gap-1 transition-transform duration-200 hover:-translate-y-0.5 hover:text-foreground">Live <ArrowUpRight size={14} /></a>
                   </div>
                 </CardContent>
               </Card>
@@ -212,7 +218,7 @@ export default function Home() {
           <h2 className="font-serif text-3xl">Blog</h2>
           <div className="space-y-4">
             {blogPosts.map((post) => (
-              <Card key={post.title}>
+              <Card key={post.title} className="hover-lift hover-glow">
                 <CardContent className="flex flex-col gap-3 pt-6 sm:flex-row sm:items-start sm:justify-between">
                   <div className="space-y-1">
                     <h3 className="text-lg font-medium">{post.title}</h3>
@@ -220,7 +226,7 @@ export default function Home() {
                   </div>
                   <div className="flex shrink-0 items-center gap-4 text-sm text-muted-foreground">
                     <span>{post.date}</span>
-                    <a href="#" className="hover:text-foreground">Read more</a>
+                    <a href="#" className="transition-transform duration-200 hover:-translate-y-0.5 hover:text-foreground">Read more</a>
                   </div>
                 </CardContent>
               </Card>
@@ -230,7 +236,7 @@ export default function Home() {
 
         <section id="contact" className="section-reveal space-y-6">
           <h2 className="font-serif text-3xl">Contact</h2>
-          <Card>
+          <Card className="hover-glow">
             <CardContent className="space-y-4 pt-6">
               <form className="grid gap-4">
                 <div className="grid gap-4 sm:grid-cols-2">
