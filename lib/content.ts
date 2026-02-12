@@ -46,6 +46,7 @@ export type HomeContent = {
     role: string
     date: string
     description: string
+    techStack: string[]
   }>
   projects: Array<{
     title: string

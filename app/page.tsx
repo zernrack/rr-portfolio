@@ -157,6 +157,13 @@ export default async function Home() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-muted-foreground">{experience.description}</p>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {experience.techStack.map((tech) => (
+                      <Badge key={`${experience.company}-${tech}`} variant="secondary" className="font-mono text-[11px]">
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
                 </CardContent>
               </Card>
             ))}
@@ -181,7 +188,9 @@ export default async function Home() {
                     ))}
                   </div>
                   <div className="flex gap-4 text-sm text-muted-foreground">
-                    <a href={project.githubUrl} className="inline-flex items-center gap-1 transition-transform duration-200 hover:-translate-y-0.5 hover:text-foreground">GitHub <ArrowUpRight size={14} /></a>
+                    {project.githubUrl && project.githubUrl !== "#" && (
+                      <a href={project.githubUrl} className="inline-flex items-center gap-1 transition-transform duration-200 hover:-translate-y-0.5 hover:text-foreground">GitHub <ArrowUpRight size={14} /></a>
+                    )}
                     <a href={project.liveUrl} className="inline-flex items-center gap-1 transition-transform duration-200 hover:-translate-y-0.5 hover:text-foreground">Live <ArrowUpRight size={14} /></a>
                   </div>
                 </CardContent>
@@ -196,7 +205,7 @@ export default async function Home() {
             <CardContent className="flex flex-col gap-4 pt-6 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-sm text-muted-foreground">{writing.description}</p>
-                <p className="mt-1 text-sm text-muted-foreground">{blogPosts.length} articles available</p>
+                <p className="mt-1 text-sm text-chart-2">{blogPosts.length} articles available</p>
               </div>
               <Link href="/blog" className={buttonVariants({ variant: "outline" })}>
                 {writing.buttonLabel}
@@ -212,9 +221,6 @@ export default async function Home() {
               <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
                 <div>
                   <p className="text-sm text-muted-foreground">{contact.description}</p>
-                  <a href={`mailto:${contact.email}`} className="mt-2 inline-block font-mono text-sm text-chart-2 hover:underline">
-                    {contact.email}
-                  </a>
                 </div>
                 <a href={`mailto:${contact.email}`} className={buttonVariants()}>
                   {contact.ctaLabel}

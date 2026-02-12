@@ -10,99 +10,111 @@
   ],
   "hero": {
     "badge": "Software Engineer",
-    "headingPrefix": "Building thoughtful digital products with a",
-    "headingHighlight": "minimal, modern",
-    "headingSuffix": "approach.",
-    "description": "I design and ship reliable web experiences, combining clean interfaces, solid architecture, and efficient collaboration.",
+    "headingPrefix": "Providing and building scalable software solutions with",
+    "headingHighlight": "reliable execution and measurable impact",
+    "headingSuffix": "across enterprise and modern web platforms.",
+    "description": "Results-driven software engineer based in Philippines, focused on solution architecture, performance optimization, and data-informed product delivery.",
     "primaryCta": { "label": "View Projects", "href": "#projects" },
     "secondaryCta": { "label": "Get in Touch", "href": "#contact" }
   },
   "metrics": [
     {
-      "value": "7+",
-      "label": "Years Experience",
-      "detail": "Building production-grade web products since 2018."
+      "value": "25–40%",
+      "label": "Manual Process Reduction",
+      "detail": "Automated workflows and API integrations to improve operational efficiency."
     },
     {
-      "value": "25+",
-      "label": "Projects Delivered",
-      "detail": "From MVP launches to scalable internal platforms."
+      "value": "30%+",
+      "label": "Performance Improvement",
+      "detail": "Led platform and migration work that boosted speed and scalability."
     },
     {
-      "value": "35%",
-      "label": "Faster Delivery",
-      "detail": "Reduced feature cycle time through reusable systems."
+      "value": "~20%",
+      "label": "Reporting Effort Cut",
+      "detail": "Built analytics dashboards that improved KPI visibility and reduced manual reporting."
     },
     {
-      "value": "95+",
-      "label": "Performance Scores",
-      "detail": "Typical Lighthouse performance and accessibility outcomes."
+      "value": "3+ Years",
+      "label": "Total Work Experience",
+      "detail": "Professional experience across frontend, analytics, software engineering, and DevOps roles since 2022."
     }
   ],
   "about": {
     "title": "About",
-    "avatarLabel": "Avatar",
-    "description": "I’m a software engineer focused on building performant, maintainable applications. I enjoy translating ideas into polished user experiences and working across design and engineering boundaries. Outside of code, I write about product craftsmanship and engineering process."
+    "avatarLabel": "RAR",
+    "description": "Results-driven Software Engineer experienced in delivering scalable full-stack applications, automating operational workflows, and improving system performance. Strong background in Next.js, React, Spring Boot, cloud deployment, and analytics tooling. Education: BS Information Technology (2023–2025) and Diploma in Information Communication Technology (2020–2023), Polytechnic University of the Philippines – Manila, graduated Cum Laude in March 2025."
   },
   "skills": [
-    { "group": "Frontend", "items": ["React", "Next.js", "TypeScript", "Tailwind CSS"] },
-    { "group": "Backend", "items": ["Node.js", "Express", "PostgreSQL", "Prisma"] },
-    { "group": "Tools", "items": ["Git", "Docker", "Vercel", "Figma"] }
+    { "group": "Programming Languages", "items": ["JavaScript", "TypeScript", "Python", "Java", "SQL"] },
+    { "group": "Frameworks & Libraries", "items": ["React", "Next.js", "Node.js", "Spring Boot", "Tailwind CSS"] },
+    { "group": "Data & Testing", "items": ["Power BI", "MongoDB", "MySQL", "Cypress"] },
+    { "group": "Tools & Platforms", "items": ["Git", "GitHub", "Postman", "Jira", "Vercel", "Supabase"] }
   ],
   "experiences": [
     {
-      "company": "Northbound Labs",
-      "role": "Senior Software Engineer",
-      "date": "2023 — Present",
-      "description": "Leading frontend architecture for customer-facing products, improving performance and shipping design-system driven features."
+      "company": "Hungry Workhorse — Makati, Philippines",
+      "role": "DevOps Specialist",
+      "date": "Aug 2025 — Present",
+      "description": "Delivered low-code API integrations and workflow automations reducing manual operational processes by 25–40%, improved platform reliability, and streamlined intern onboarding/documentation to reduce repeat IT requests.",
+      "techStack": ["API Integrations", "Automation", "Monitoring", "Documentation", "Wix", "AWS"]
     },
     {
-      "company": "Meridian Tech",
+      "company": "Ezeops — Melbourne, Australia",
       "role": "Software Engineer",
-      "date": "2021 — 2023",
-      "description": "Built full-stack internal tools and automated manual workflows, reducing reporting time and increasing product team velocity."
+      "date": "Jul 2025 — Present",
+      "description": "Built full-stack Next.js applications from Figma designs with responsive mobile-first UI and scalable backend APIs; led WordPress → Next.js migrations improving application performance by 30%+ and supporting consistent sprint delivery.",
+      "techStack": ["Next.js", "React", "TypeScript", "Figma", "PayloadCMS", "Wordpress"]
     },
     {
-      "company": "Pixel Foundry",
-      "role": "Frontend Engineer",
-      "date": "2019 — 2021",
-      "description": "Collaborated with design to build accessible interfaces and reusable components for multi-client web applications."
+      "company": "Manulife — Makati, Philippines",
+      "role": "Software Engineer Intern",
+      "date": "Oct 2023 — Mar 2025",
+      "description": "Developed production features for a consumer-facing platform using Spring Boot and Clean Architecture; assisted SQL → MongoDB migration to improve query performance while maintaining release stability.",
+      "techStack": ["Spring Boot", "Java", "SQL", "MongoDB", "React", "Jenkins", "Bitbucket"]
     },
     {
-      "company": "Studio Start",
-      "role": "Junior Developer",
-      "date": "2018 — 2019",
-      "description": "Supported rapid MVP delivery and maintained production websites for small business clients."
+      "company": "Accenture — Mandaluyong, Philippines",
+      "role": "Data Analyst Intern",
+      "date": "Jul 2024 — Sep 2024",
+      "description": "Built interactive Power BI dashboards and performed multi-source data validation; reduced manual reporting by ~20% and improved data accuracy and visibility across stakeholders.",
+      "techStack": ["Power BI", "Data Validation", "Analytics", "Excel"]
+    },
+    {
+      "company": "Lophils Inc. — Quezon City, Philippines",
+      "role": "Front-End Developer & Cypress QA Intern",
+      "date": "Apr 2023 — Aug 2023",
+      "description": "Developed responsive React + Tailwind components and implemented Cypress end-to-end tests, increasing regression coverage and reducing manual QA effort by ~30%.",
+      "techStack": ["React", "Tailwind CSS", "Cypress"]
+    },
+    {
+      "company": "Hacktiv Colab Inc. — Makati, Philippines",
+      "role": "Front-End Developer Intern",
+      "date": "Aug 2022 — Oct 2022",
+      "description": "Built responsive React + Material UI interfaces in an Agile Scrum environment and delivered sprint features on schedule with improved cross-device compatibility.",
+      "techStack": ["React", "Material UI", "Agile Scrum"]
     }
   ],
   "projects": [
     {
-      "title": "Atlas Dashboard",
-      "description": "Analytics dashboard with role-based access, realtime charts, and exportable insights.",
-      "tags": ["Next.js", "TypeScript", "PostgreSQL"],
+      "title": "ShieldPH — Cybersecurity Learning Platform",
+      "description": "Built a gamified cybersecurity education system with 10+ learning modules, threat simulations, progress tracking, and real-time updates to increase engagement and awareness.",
+      "tags": ["Next.js", "TypeScript", "Cybersecurity", "Vercel"],
       "githubUrl": "#",
-      "liveUrl": "#"
+      "liveUrl": "https://shield-ph.vercel.app"
     },
     {
-      "title": "Pulse API",
-      "description": "Scalable backend service for event ingestion and processing with robust observability.",
-      "tags": ["Node.js", "Express", "Redis"],
+      "title": "Pili-Pinas — MERN Travel Guide",
+      "description": "Developed a full-stack MERN application serving 5+ destinations with RESTful APIs, complete CRUD functionality, and validated end-to-end user journeys.",
+      "tags": ["MongoDB", "Express", "React", "Node.js"],
       "githubUrl": "#",
-      "liveUrl": "#"
+      "liveUrl": "https://pili-pinas.onrender.com"
     },
     {
-      "title": "Orbit UI Kit",
-      "description": "Component library for internal products focused on accessibility and consistency.",
-      "tags": ["React", "Storybook", "Tailwind CSS"],
+      "title": "Work Pulse — Time Tracking & Productivity Analytics",
+      "description": "Built a time tracking and task management system with clock-in/out, task monitoring, and analytics dashboards; optimized Vercel deployment for performance and reliability.",
+      "tags": ["Next.js", "Analytics", "Vercel", "Productivity"],
       "githubUrl": "#",
-      "liveUrl": "#"
-    },
-    {
-      "title": "Shipyard",
-      "description": "Lightweight project planning tool with collaborative boards and release tracking.",
-      "tags": ["Next.js", "Prisma", "Vercel"],
-      "githubUrl": "#",
-      "liveUrl": "#"
+      "liveUrl": "https://work-pulse-zeta.vercel.app"
     }
   ],
   "writing": {
@@ -112,10 +124,10 @@
   },
   "contact": {
     "title": "Contact",
-    "description": "Open to product engineering roles, consulting, and collaborative builds.",
-    "email": "hello@example.com",
+    "description": "Open to software engineering opportunities, collaborations, and consulting work.",
+    "email": "rrackhold@proton.me",
     "ctaLabel": "Start a Conversation",
-    "linkedinUrl": "#",
+    "linkedinUrl": "https://linkedin.com/in/renz-rackhold",
     "linkedinLabel": "LinkedIn",
     "emailLabel": "Email"
   },
