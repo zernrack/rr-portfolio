@@ -15,8 +15,8 @@ export default async function BlogPage() {
       <div className="flex items-center justify-between gap-4">
         <div className="space-y-2">
           <Badge variant="secondary">Blog</Badge>
-          <h1 className="font-serif text-4xl tracking-tight">Writing</h1>
-          <p className="text-sm text-muted-foreground">Notes on software engineering, product craft, and frontend systems.</p>
+          <h1 className="text-ease-in text-ease-delay-1 font-serif text-4xl tracking-tight">Writing</h1>
+          <p className="text-ease-in text-ease-delay-2 text-sm text-muted-foreground">Notes on software engineering, product craft, and frontend systems.</p>
         </div>
         <Link href="/" className={buttonVariants({ variant: "outline" })}>
           <ArrowLeft size={16} /> Home

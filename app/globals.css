@@ -180,27 +180,43 @@
   }
 
   .section-reveal-1 {
-    animation-delay: 30ms;
+    animation-delay: 0.5s;
   }
 
   .section-reveal-2 {
-    animation-delay: 110ms;
+    animation-delay: 0.5s;
   }
 
   .section-reveal-3 {
-    animation-delay: 190ms;
+    animation-delay: 0.5s;
   }
 
   .section-reveal-4 {
-    animation-delay: 270ms;
+    animation-delay: 0.5s;
   }
 
   .section-reveal-5 {
-    animation-delay: 350ms;
+    animation-delay: 0.5s;
   }
 
   .section-reveal-6 {
-    animation-delay: 430ms;
+    animation-delay: 0.5s;
+  }
+
+  .text-ease-in {
+    animation: text-ease-in 950ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .text-ease-delay-1 {
+    animation-delay: 0.5s;
+  }
+
+  .text-ease-delay-2 {
+    animation-delay: 0.5s;
+  }
+
+  .text-ease-delay-3 {
+    animation-delay: 0.5s;
   }
 
   .hover-lift {
@@ -228,6 +244,17 @@
   from {
     opacity: 0;
     transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes text-ease-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
@@ -275,6 +302,10 @@
   .section-reveal-4,
   .section-reveal-5,
   .section-reveal-6,
+  .text-ease-in,
+  .text-ease-delay-1,
+  .text-ease-delay-2,
+  .text-ease-delay-3,
   .animate-float,
   .animate-drift,
   .animate-soft-pulse {

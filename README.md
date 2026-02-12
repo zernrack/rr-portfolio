@@ -44,6 +44,7 @@ Edit [content/home.json](content/home.json) to update:
 - `hero` badge, heading, description, and CTAs
 - `metrics` cards (value, label, detail)
 - `about`, `skills`, `experiences`, and `projects`
+- `experiences[].techStack` badges shown under each role
 - `contact` fields used by the contact section:
 	- `description`
 	- `email`
@@ -69,7 +70,7 @@ Edit [content/home.json](content/home.json) to update:
 	"metrics": [{ "value": "...", "label": "...", "detail": "..." }],
 	"about": { "title": "...", "avatarLabel": "...", "description": "..." },
 	"skills": [{ "group": "...", "items": ["..."] }],
-	"experiences": [{ "company": "...", "role": "...", "date": "...", "description": "..." }],
+	"experiences": [{ "company": "...", "role": "...", "date": "...", "description": "...", "techStack": ["..."] }],
 	"projects": [{ "title": "...", "description": "...", "tags": ["..."], "githubUrl": "...", "liveUrl": "..." }],
 	"writing": { "title": "...", "description": "...", "buttonLabel": "..." },
 	"contact": {
@@ -100,6 +101,17 @@ Post body content...
 ```
 
 Posts are auto-loaded and sorted by date (newest first).
+
+## UI Behavior
+
+- Project cards only show the `GitHub` link when `projects[].githubUrl` is a real URL (not `#` or empty).
+- Text animations use easing utilities in [app/globals.css](app/globals.css):
+	- `text-ease-in`
+	- `text-ease-delay-1`
+	- `text-ease-delay-2`
+	- `text-ease-delay-3`
+- Section reveal delays are controlled by:
+	- `section-reveal-1` to `section-reveal-6`
 
 ## Development
 

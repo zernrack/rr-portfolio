@@ -82,13 +82,13 @@ export default async function Home() {
         <section className="section-reveal section-reveal-1 relative space-y-6 pt-10">
           <div className="pointer-events-none absolute -top-8 right-0 h-36 w-36 rounded-full bg-chart-2/10 blur-3xl animate-soft-pulse" />
           <Badge className="bg-chart-2/20 text-chart-2 hover:bg-chart-2/30 animate-float">{hero.badge}</Badge>
-          <h1 className="max-w-3xl font-serif text-4xl tracking-tight sm:text-5xl md:text-6xl">
+          <h1 className="text-ease-in text-ease-delay-1 max-w-3xl font-serif text-4xl tracking-tight sm:text-5xl md:text-6xl">
             {hero.headingPrefix}{" "}
             <span className="text-chart-2">{hero.headingHighlight}</span>{" "}
             {hero.headingSuffix}
           </h1>
-          <p className="max-w-2xl text-muted-foreground">{hero.description}</p>
-          <div className="flex flex-wrap gap-3">
+          <p className="text-ease-in text-ease-delay-2 max-w-2xl text-muted-foreground">{hero.description}</p>
+          <div className="text-ease-in text-ease-delay-3 flex flex-wrap gap-3">
             <a href={hero.primaryCta.href} className={buttonVariants()}>
               {hero.primaryCta.label}
             </a>
@@ -99,7 +99,7 @@ export default async function Home() {
         </section>
 
         <section className="section-reveal section-reveal-2 space-y-6">
-          <h2 className="font-serif text-3xl">Metrics</h2>
+          <h2 className="text-ease-in text-ease-delay-1 font-serif text-3xl">Metrics</h2>
           <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
             {metrics.map((metric) => (
               <Card key={metric.label} className="hover-lift hover-glow">
@@ -114,7 +114,7 @@ export default async function Home() {
         </section>
 
         <section id="about" className="section-reveal section-reveal-3 scroll-mt-20 space-y-6">
-          <h2 className="font-serif text-3xl">{about.title}</h2>
+          <h2 className="text-ease-in text-ease-delay-1 font-serif text-3xl">{about.title}</h2>
           <Card className="hover-lift hover-glow">
             <CardContent className="grid gap-6 pt-6 sm:grid-cols-[96px_1fr] sm:items-center">
               <div className="flex h-24 w-24 items-center justify-center rounded-full bg-secondary font-mono text-xs text-muted-foreground animate-soft-pulse">
@@ -126,7 +126,7 @@ export default async function Home() {
         </section>
 
         <section id="skills" className="section-reveal section-reveal-4 scroll-mt-20 space-y-6">
-          <h2 className="font-serif text-3xl">Skills</h2>
+          <h2 className="text-ease-in text-ease-delay-1 font-serif text-3xl">Skills</h2>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {skills.map((skillGroup) => (
               <Card key={skillGroup.group} className="hover-lift hover-glow">
@@ -146,7 +146,7 @@ export default async function Home() {
         </section>
 
         <section id="experience" className="section-reveal section-reveal-5 scroll-mt-20 space-y-6">
-          <h2 className="font-serif text-3xl">Experience</h2>
+          <h2 className="text-ease-in text-ease-delay-1 font-serif text-3xl">Experience</h2>
           <div className="relative space-y-4 border-l pl-6">
             {experiences.map((experience) => (
               <Card key={`${experience.company}-${experience.role}`} className="relative hover-lift hover-glow">
@@ -171,7 +171,7 @@ export default async function Home() {
         </section>
 
         <section id="projects" className="section-reveal section-reveal-6 scroll-mt-20 space-y-6">
-          <h2 className="font-serif text-3xl">Projects</h2>
+          <h2 className="text-ease-in text-ease-delay-1 font-serif text-3xl">Projects</h2>
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {projects.map((project) => (
               <Card key={project.title} className="hover-lift hover-glow">
@@ -200,7 +200,7 @@ export default async function Home() {
         </section>
 
         <section className="section-reveal section-reveal-6 space-y-6">
-          <h2 className="font-serif text-3xl">{writing.title}</h2>
+          <h2 className="text-ease-in text-ease-delay-1 font-serif text-3xl">{writing.title}</h2>
           <Card className="hover-glow">
             <CardContent className="flex flex-col gap-4 pt-6 sm:flex-row sm:items-center sm:justify-between">
               <div>
@@ -215,7 +215,7 @@ export default async function Home() {
         </section>
 
         <section id="contact" className="section-reveal section-reveal-6 scroll-mt-20 space-y-6">
-          <h2 className="font-serif text-3xl">{contact.title}</h2>
+          <h2 className="text-ease-in text-ease-delay-1 font-serif text-3xl">{contact.title}</h2>
           <Card className="hover-glow">
             <CardContent className="space-y-6 pt-6">
               <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
