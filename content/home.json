@@ -60,21 +60,21 @@
     {
       "company": "Ezeops — Melbourne, Australia",
       "role": "Software Engineer",
-      "date": "Jul 2025 — Present",
+      "date": "July 2025 — March 2026",
       "description": "Built full-stack Next.js applications from Figma designs with responsive mobile-first UI and scalable backend APIs; led WordPress → Next.js migrations improving application performance by 30%+ and supporting consistent sprint delivery.",
       "techStack": ["Next.js", "React", "TypeScript", "Figma", "PayloadCMS", "Wordpress"]
     },
     {
       "company": "Manulife — Makati, Philippines",
       "role": "Software Engineer Intern",
-      "date": "Oct 2023 — Mar 2025",
+      "date": "Oct 2023 — March 2025",
       "description": "Developed production features for a consumer-facing platform using Spring Boot and Clean Architecture; assisted SQL → MongoDB migration to improve query performance while maintaining release stability.",
       "techStack": ["Spring Boot", "Java", "SQL", "MongoDB", "React", "Jenkins", "Bitbucket"]
     },
     {
       "company": "Accenture — Mandaluyong, Philippines",
       "role": "Data Analyst Intern",
-      "date": "Jul 2024 — Sep 2024",
+      "date": "July 2024 — Sep 2024",
       "description": "Built interactive Power BI dashboards and performed multi-source data validation; reduced manual reporting by ~20% and improved data accuracy and visibility across stakeholders.",
       "techStack": ["Power BI", "Data Validation", "Analytics", "Excel"]
     },
